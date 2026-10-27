@@ -1,0 +1,8 @@
+{
+  "name": "flickdock-site",
+  "private": true,
+  "version": "1.8.12",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}
