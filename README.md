@@ -7,9 +7,15 @@ Edit `source/public/` and run `npm run build` to produce the three files in
 `dist/` for Retiehe static hosting. The SVG assets are bundled into `site.js`
 because the hosted site permits only a small number of files.
 
-Retiehe's official CLI generates the deployment configuration and GitHub
-workflow. Create an API key in the Retiehe dashboard, then run the following
-from this repository's root after installing Deno 2.8 or newer:
+Every push to `main` builds the three hosted files and makes them available
+as the `flickdock-retiehe-site` GitHub Actions artifact. The current Retiehe
+account requires a Premium plan for Git auto deployment. Until that is enabled,
+upload the three artifact files to the existing site without editing code in
+the browser.
+
+When Git auto deployment is available, Retiehe's official CLI can generate
+the deployment configuration. Create an API key in the Retiehe dashboard,
+then run the following from this repository's root with Deno 2.8 or newer:
 
 ```sh
 deno -Ar https://host.retiehe.com/cli init
