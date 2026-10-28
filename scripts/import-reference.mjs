@@ -32,22 +32,23 @@ html = html.replace(
   '<img src="/assets/flickdock.svg" alt="" width="32" height="32" class="w-8 h-8 shrink-0">$1',
 );
 
-const win = 'https://gitee.com/rooogerluo/flick-dock-windows-releases/releases/download/v1.8.13/FlickDock-Setup-1.8.13.exe';
-const arm = 'https://gitee.com/rooogerluo/flick-dock-macos-releases-2/releases/download/v1.8.13/FlickDock-1.8.13-macOS-arm64.dmg';
-const intel = 'https://gitee.com/rooogerluo/flick-dock-macos-releases-2/releases/download/v1.8.13/FlickDock-1.8.13-macOS-x86_64.dmg';
+const win = 'https://gitee.com/rooogerluo/flick-dock-windows-releases/releases/download/v1.8.14/FlickDock-Setup-1.8.14.exe';
+const arm = 'https://gitee.com/rooogerluo/flick-dock-macos-releases-3/releases/download/v1.8.14/FlickDock-1.8.14-macOS-arm64.dmg';
+const intel = 'https://gitee.com/rooogerluo/flick-dock-macos-releases-3/releases/download/v1.8.14/FlickDock-1.8.14-macOS-x86_64.dmg';
 
 // Preserve the reference buttons. macOS leads to the explicit chip choices.
 html = html.replaceAll("onclick=\"triggerDownload('Windows')\"", `onclick="triggerDownload('Windows')"`);
 html = html.replaceAll("onclick=\"triggerDownload('macOS')\"", `onclick="triggerDownload('macOS')"`);
 const tray = `
         <div class="flex flex-wrap justify-center gap-2.5 pt-2" aria-label="选择安装包">
-          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${win}" data-installer="windows">Windows x64 · 1.8.13 ↗</a>
-          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${arm}" data-installer="mac-arm">Mac Apple 芯片 · 1.8.13 ↗</a>
-          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${intel}" data-installer="mac-intel">Mac Intel · 1.8.13 ↗</a>
+          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${win}" data-installer="windows">Windows x64 · 1.8.14 ↗</a>
+          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${arm}" data-installer="mac-arm">Mac Apple 芯片 · 1.8.14 ↗</a>
+          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${intel}" data-installer="mac-intel">Mac Intel · 1.8.14 ↗</a>
         </div>`;
 html = html.replace(/(<p class="text-xs text-zinc-500">支持 Windows 10 \/ 11)/,
                     `${tray}\n        $1`);
 html = html.replace('macOS 13.0+', 'macOS 14.4+');
+html = html.replace('Windows 10 / 11 (64-bit)', 'Windows 10 (1809+) / Windows 11 x64');
 
 // Retiehe forbids inline event handlers. Keep the supplied elements and behavior,
 // and connect their original functions from the external script instead.
