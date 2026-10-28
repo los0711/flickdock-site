@@ -32,18 +32,18 @@ html = html.replace(
   '<img src="/assets/flickdock.svg" alt="" width="32" height="32" class="w-8 h-8 shrink-0">$1',
 );
 
-const win = 'https://gitee.com/rooogerluo/flick-dock-windows-releases/releases/download/v1.8.14/FlickDock-Setup-1.8.14.exe';
-const arm = 'https://gitee.com/rooogerluo/flick-dock-macos-releases-3/releases/download/v1.8.14/FlickDock-1.8.14-macOS-arm64.dmg';
-const intel = 'https://gitee.com/rooogerluo/flick-dock-macos-releases-3/releases/download/v1.8.14/FlickDock-1.8.14-macOS-x86_64.dmg';
+const win = 'https://gitee.com/rooogerluo/flick-dock-windows-releases/releases/download/v1.8.15/FlickDock-Setup-1.8.15.exe';
+const arm = 'https://gitee.com/rooogerluo/flick-dock-macos-releases-3/releases/download/v1.8.15/FlickDock-1.8.15-macOS-arm64.dmg';
+const intel = 'https://gitee.com/rooogerluo/flick-dock-macos-releases-3/releases/download/v1.8.15/FlickDock-1.8.15-macOS-x86_64.dmg';
 
 // Preserve the reference buttons. macOS leads to the explicit chip choices.
 html = html.replaceAll("onclick=\"triggerDownload('Windows')\"", `onclick="triggerDownload('Windows')"`);
 html = html.replaceAll("onclick=\"triggerDownload('macOS')\"", `onclick="triggerDownload('macOS')"`);
 const tray = `
         <div class="flex flex-wrap justify-center gap-2.5 pt-2" aria-label="选择安装包">
-          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${win}" data-installer="windows">Windows x64 · 1.8.14 ↗</a>
-          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${arm}" data-installer="mac-arm">Mac Apple 芯片 · 1.8.14 ↗</a>
-          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${intel}" data-installer="mac-intel">Mac Intel · 1.8.14 ↗</a>
+          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${win}" data-installer="windows">Windows x64 · 1.8.15 ↗</a>
+          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${arm}" data-installer="mac-arm">Mac Apple 芯片 · 1.8.15 ↗</a>
+          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="${intel}" data-installer="mac-intel">Mac Intel · 1.8.15 ↗</a>
         </div>`;
 html = html.replace(/(<p class="text-xs text-zinc-500">支持 Windows 10 \/ 11)/,
                     `${tray}\n        $1`);
