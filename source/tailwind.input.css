@@ -261,4 +261,3 @@
     .stack-0 { transform: translateY(0px) scale(1) rotate(0deg); z-index: 30; }
     .stack-1 { transform: translateY(-8px) scale(0.94) rotate(-3deg); z-index: 20; opacity: 0.85; }
     .stack-2 { transform: translateY(-16px) scale(0.88) rotate(3deg); z-index: 10; opacity: 0.65; }
-

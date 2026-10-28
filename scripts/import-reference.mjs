@@ -83,7 +83,7 @@ if (js.includes('FlickDock Installer') || js.includes('new Blob([')) {
   throw new Error('Placeholder download code remained');
 }
 js += `\nconst actions = {\n  'theme-dark': () => setTheme('dark'),\n  'theme-light': () => setTheme('light'),\n  'download-windows': () => triggerDownload('Windows'),\n  'download-macos': () => triggerDownload('macOS'),\n  'scene-0': () => switchScene(0),\n  'scene-1': () => switchScene(1),\n  'scene-2': () => switchScene(2),\n};\ndocument.querySelectorAll('[data-ui-action]').forEach(element => {\n  element.addEventListener('click', actions[element.dataset.uiAction]);\n});\nconst parallax = document.querySelector('[data-parallax="hero"]');\nparallax.addEventListener('mousemove', handleHeroParallax);\nparallax.addEventListener('mouseleave', resetHeroParallax);\n`;
-const tidy = text => text.replace(/[ \t]+$/gm, '');
+const tidy = text => `${text.replace(/[ \t]+$/gm, '').trimEnd()}\n`;
 writeFileSync(join(root, 'public', 'index.html'), tidy(html), 'utf8');
 writeFileSync(join(root, 'public', 'site.js'), tidy(js), 'utf8');
 writeFileSync(join(root, 'tailwind.input.css'), tidy(`@tailwind base;\n@tailwind components;\n@tailwind utilities;\n${css}\n`), 'utf8');
