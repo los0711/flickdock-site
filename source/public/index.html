@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FlickDock — 一甩即存，跨端随行</title>
-  <meta name="description" content="FlickDock 是 Windows 和 macOS 文件搁架，支持拖入文件、图片与文字、云同步和局域网互传。">
+  <meta name="description" content="FlickDock 是 Windows 和 macOS 文件搁架，支持拖入文件、图片与文字、云同步、局域网与广域网互传，不同网络、不同设备也能异地传文件。">
   <link rel="icon" type="image/svg+xml" href="/assets/flickdock.svg">
 
 
@@ -103,8 +103,8 @@
               <span>常驻系统托盘与屏幕边缘</span>
             </div>
             <div class="flex items-center gap-3">
-              <span class="text-hig-green">云端与局域网</span>
-              <span>Wi‑Fi 局域网直连</span>
+              <span class="text-hig-green">云同步与跨网互传</span>
+              <span>局域网 / 广域网互传</span>
             </div>
           </div>
 
@@ -371,7 +371,7 @@
             </div>
 
             <div class="flex-1 flex flex-col items-center space-y-2">
-              <span class="text-xs font-semibold text-hig-cyan">⚡ 局域网直传 / 云同步</span>
+              <span class="text-xs font-semibold text-hig-cyan">⚡ 局域网 / 广域网互传</span>
               <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden relative">
                 <div class="anim-beam w-1/2 h-full bg-gradient-to-r from-transparent via-hig-cyan to-hig-blue rounded-full"></div>
               </div>
@@ -394,7 +394,7 @@
           </div>
 
           <div class="absolute bottom-5 text-xs text-zinc-400">
-            同一账号双端搁架自动同步，大文件支持局域网面对面高速直传
+            支持不同网络、不同设备，异地也能传文件。
           </div>
         </div>
       </div>
@@ -520,10 +520,10 @@
             <div class="w-12 h-12 rounded-2xl bg-hig-cyan/15 text-hig-cyan flex items-center justify-center text-2xl"><img src="/assets/control-nearby.svg" alt="" width="28" height="28"></div>
             <h3 class="text-base font-bold text-white">Win 与 Mac 双机无缝接力</h3>
             <p class="text-xs text-zinc-400 leading-relaxed">
-              台式机剪辑渲染好的视频或文档，放进搁架即可同步至 MacBook；大体积素材也可通过局域网在设备间直接传输，免去插拔 U 盘。
+              支持不同网络、不同设备，异地也能传文件。搁架自动同步，局域网与广域网都能互传。
             </p>
           </div>
-          <div class="pt-3 border-t border-white/[0.06] text-[11px] text-hig-cyan font-medium">云端同步 + 局域网直接传输</div>
+          <div class="pt-3 border-t border-white/[0.06] text-[11px] text-hig-cyan font-medium">云同步 + 局域网 / 广域网互传</div>
         </div>
 
         <div class="showcase-card p-6 flex flex-col justify-between space-y-6">
@@ -576,9 +576,9 @@
 
 
         <div class="flex flex-wrap justify-center gap-2.5 pt-2" aria-label="选择安装包">
-          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="https://gitee.com/rooogerluo/flick-dock-windows-releases/releases/download/v1.8.15/FlickDock-Setup-1.8.15.exe" data-installer="windows">Windows x64 · 1.8.15 ↗</a>
-          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="https://gitee.com/rooogerluo/flick-dock-macos-releases-3/releases/download/v1.8.15/FlickDock-1.8.15-macOS-arm64.dmg" data-installer="mac-arm">Mac Apple 芯片 · 1.8.15 ↗</a>
-          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="https://gitee.com/rooogerluo/flick-dock-macos-releases-3/releases/download/v1.8.15/FlickDock-1.8.15-macOS-x86_64.dmg" data-installer="mac-intel">Mac Intel · 1.8.15 ↗</a>
+          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="https://gitee.com/rooogerluo/flick-dock-windows-releases/releases/download/v1.8.16/FlickDock-Setup-1.8.16.exe" data-installer="windows">Windows x64 · 1.8.16 ↗</a>
+          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="https://gitee.com/rooogerluo/flick-dock-macos-releases-4/releases/download/v1.8.16/FlickDock-1.8.16-macOS-arm64.dmg" data-installer="mac-arm">Mac Apple 芯片 · 1.8.16 ↗</a>
+          <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="https://gitee.com/rooogerluo/flick-dock-macos-releases-4/releases/download/v1.8.16/FlickDock-1.8.16-macOS-x86_64.dmg" data-installer="mac-intel">Mac Intel · 1.8.16 ↗</a>
         </div>
         <p class="text-xs text-zinc-500">Windows 10 (1809+) / Windows 11 x64 · macOS 14.4+</p>
       </div>

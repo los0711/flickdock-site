@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "version": "1.8.16",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "published_at": "2026-10-28T20:22:54Z",
+  "notes": "新增广域网传输：支持不同网络、不同设备，异地也能传文件；无需登录，凭接收码配对并经接收方确认，优先 P2P，必要时自动使用中继。小预览通过“互传”选择局域网或广域网，总览新增广域网入口。\n优化文件夹云同步与传输吞吐，修复大文件夹只显示约 4 KB、同步重试及 Mac 局域网发送失败。\n修复 Mac 触发、展开收缩、登录状态恢复与检查更新；Windows 使用鸿蒙字体并统一字号、对齐与控件热区，完成检查后立即隐藏进度。\n改进设置账户与设备排版、设备改名、传输完成和中断后的收尾、拖入边框与最近记录滚动。\nMac 手动安装请使用 DMG 或 PKG；ZIP 用于软件内自动更新。",
+  "installer": {
+    "filename": "FlickDock-1.8.16-macOS-arm64.zip",
+    "url": "https://gitee.com/rooogerluo/flick-dock-macos-releases-4/releases/download/v1.8.16/FlickDock-1.8.16-macOS-arm64.zip",
+    "size": 70850528,
+    "sha256": "3757661006c1699bca638f4dbd721a50b6bbe99c7e4662f806ae8eff1fe82bfc"
+  }
+}
