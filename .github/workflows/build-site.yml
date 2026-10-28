@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
+      - run: npm ci
       - run: npm run build
       - name: Upload Retiehe site files
         uses: actions/upload-artifact@v4

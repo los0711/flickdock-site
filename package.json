@@ -3,6 +3,9 @@
   "private": true,
   "version": "1.8.13",
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "tailwindcss -c tailwind.config.cjs -i source/tailwind.input.css -o source/public/styles.css --minify && node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
   }
 }

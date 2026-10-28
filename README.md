@@ -7,6 +7,12 @@ Edit `source/public/` and run `npm run build` to produce the three files in
 `dist/` for Retiehe static hosting. The SVG assets are bundled into `site.js`
 because the hosted site permits only a small number of files.
 
+The current layout is imported directly from the supplied website HTML.
+`scripts/import-reference.mjs <design.html>` preserves its markup, styles and
+animation functions, substitutes the original FlickDock logo and live download
+links, and moves event bindings into the external script for Retiehe's CSP.
+Run `npm ci` before the first build.
+
 Every push to `main` builds the three hosted files and makes them available
 as the `flickdock-retiehe-site` GitHub Actions artifact. The current Retiehe
 account requires a Premium plan for Git auto deployment. Until that is enabled,

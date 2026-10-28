@@ -1,142 +1,87 @@
-const demoFiles = {
-  image: { name: '旅行照片.png', icon: '/assets/content-image.svg', type: '图片' },
-  video: { name: '周末片段.mp4', icon: '/assets/content-video.svg', type: '视频' },
-  pdf: { name: '设计提案.pdf', icon: '/assets/content-pdf.svg', type: '文件' },
-  text: { name: '一段灵感', icon: '/assets/content-text.svg', type: '文字' },
+
+    function handleHeroParallax(e) {
+      const wrap = document.getElementById('hero-stage-wrap');
+      const deck = document.getElementById('hero-3d-deck');
+      const rect = wrap.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const rotY = x * 10;
+      const rotX = 7 - y * 8;
+      deck.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+    }
+
+    function resetHeroParallax() {
+      const deck = document.getElementById('hero-3d-deck');
+      deck.style.transform = 'rotateX(7deg) rotateY(0deg)';
+    }
+
+    let currentScene = 0;
+    let sceneTimer = null;
+
+    function switchScene(idx) {
+      currentScene = idx;
+      [0, 1, 2].forEach(i => {
+        document.getElementById('scene-' + i).classList.toggle('hidden', i !== idx);
+        const tab = document.getElementById('scene-tab-' + i);
+        tab.className = i === idx
+          ? 'px-4 py-2 rounded-xl text-xs font-semibold bg-white/15 text-white shadow-sm transition'
+          : 'px-4 py-2 rounded-xl text-xs font-semibold text-zinc-400 hover:text-white transition';
+      });
+      resetAutoPlay();
+    }
+
+    function resetAutoPlay() {
+      if (sceneTimer) clearInterval(sceneTimer);
+      sceneTimer = setInterval(() => {
+        const next = (currentScene + 1) % 3;
+        switchScene(next);
+      }, 5500);
+    }
+
+    function setTheme(theme) {
+      document.body.classList.toggle('theme-light', theme === 'light');
+      const activeCls = 'px-2.5 py-1 rounded-lg text-xs font-medium bg-white/15 text-white transition';
+      const inactiveCls = 'px-2.5 py-1 rounded-lg text-xs font-medium text-zinc-400 hover:text-white transition';
+      document.getElementById('theme-btn-dark').className = theme === 'dark' ? activeCls : inactiveCls;
+      document.getElementById('theme-btn-light').className = theme === 'light' ? activeCls : inactiveCls;
+    }
+
+    function triggerDownload(osName) {
+      if (osName === 'Windows') {
+        const link = document.querySelector('[data-installer="windows"]');
+        showToast('正在打开 Windows 安装包下载');
+        window.location.assign(link.href);
+      } else {
+        document.getElementById('download').scrollIntoView({ behavior: 'smooth' });
+        showToast('请选择 Apple 芯片或 Intel 安装包');
+      }
+    }
+
+    let toastTimeout = null;
+    function showToast(msg) {
+      const toast = document.getElementById('promo-toast');
+      document.getElementById('promo-toast-text').textContent = msg;
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+      }, 2400);
+    }
+
+    resetAutoPlay();
+
+const actions = {
+  'theme-dark': () => setTheme('dark'),
+  'theme-light': () => setTheme('light'),
+  'download-windows': () => triggerDownload('Windows'),
+  'download-macos': () => triggerDownload('macOS'),
+  'scene-0': () => switchScene(0),
+  'scene-1': () => switchScene(1),
+  'scene-2': () => switchScene(2),
 };
-
-const stage = document.querySelector('.demo-stage');
-const dropzone = document.querySelector('#demo-dropzone');
-const stack = document.querySelector('#demo-stack');
-const count = document.querySelector('#demo-count');
-const latest = document.querySelector('#demo-latest');
-const overview = document.querySelector('#demo-overview');
-const overviewItems = document.querySelector('#demo-overview-items');
-const toggle = document.querySelector('#demo-toggle');
-const reset = document.querySelector('#demo-reset');
-const announcement = document.querySelector('#demo-announcement');
-const seed = ['image', 'video', 'text'];
-let items = [...seed];
-let dragSource = null;
-
-function renderDemo() {
-  const top = demoFiles[items[0]];
-  count.textContent = `${items.length} 项`;
-  latest.textContent = top ? top.name : '拖入示例文件';
-  stack.replaceChildren();
-  items.slice(0, 5).reverse().forEach((kind, index, visible) => {
-    const img = document.createElement('img');
-    img.className = 'stack-card';
-    img.src = demoFiles[kind].icon;
-    img.alt = '';
-    const fromFront = visible.length - index - 1;
-    img.style.transform = `translate(${6 - fromFront * 8}px, ${-6 + fromFront * 7}px) rotate(${3 - fromFront * 6}deg)`;
-    img.style.zIndex = String(index + 1);
-    stack.append(img);
-  });
-  overviewItems.replaceChildren();
-  items.forEach((kind) => {
-    const row = document.createElement('span');
-    row.className = 'demo-overview-item';
-    const icon = document.createElement('img');
-    icon.src = demoFiles[kind].icon;
-    icon.alt = '';
-    const name = document.createElement('span');
-    name.textContent = demoFiles[kind].name;
-    row.append(icon, name);
-    overviewItems.append(row);
-  });
-}
-
-function animateToShelf(source, kind) {
-  if (!source || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return Promise.resolve();
-  const icon = source.querySelector('img');
-  if (!icon) return Promise.resolve();
-  const a = icon.getBoundingClientRect();
-  const b = stack.getBoundingClientRect();
-  const clone = icon.cloneNode();
-  clone.className = 'demo-fly';
-  clone.alt = '';
-  clone.style.left = `${a.left}px`;
-  clone.style.top = `${a.top}px`;
-  clone.style.width = `${a.width}px`;
-  clone.style.height = `${a.height}px`;
-  document.body.append(clone);
-  const dx = b.left + b.width / 2 - a.left - a.width / 2;
-  const dy = b.top + b.height / 2 - a.top - a.height / 2;
-  const animation = clone.animate([
-    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-    { transform: `translate(${dx * .56}px, ${dy * .4 - 28}px) scale(1.25)`, opacity: 1, offset: .56 },
-    { transform: `translate(${dx}px, ${dy}px) scale(.92)`, opacity: .95 },
-  ], { duration: 500, easing: 'cubic-bezier(.22,.78,.22,1)' });
-  return animation.finished.catch(() => {}).finally(() => clone.remove());
-}
-
-async function addDemoFile(kind, source) {
-  if (!Object.hasOwn(demoFiles, kind)) return;
-  await animateToShelf(source, kind);
-  items.unshift(kind);
-  renderDemo();
-  dropzone.classList.remove('is-receiving');
-  void dropzone.offsetWidth;
-  dropzone.classList.add('is-receiving');
-  announcement.textContent = `已将${demoFiles[kind].name}放入演示搁架，现在有${items.length}项。`;
-}
-
-document.querySelectorAll('.demo-file').forEach((source) => {
-  source.addEventListener('click', () => addDemoFile(source.dataset.kind, source));
-  source.addEventListener('dragstart', (event) => {
-    dragSource = source;
-    event.dataTransfer.effectAllowed = 'copy';
-    event.dataTransfer.setData('text/flickdock-demo', source.dataset.kind);
-  });
-  source.addEventListener('dragend', () => {
-    dragSource = null;
-    dropzone.classList.remove('is-drag-over');
-  });
+document.querySelectorAll('[data-ui-action]').forEach(element => {
+  element.addEventListener('click', actions[element.dataset.uiAction]);
 });
-
-dropzone.addEventListener('dragover', (event) => {
-  if (!event.dataTransfer.types.includes('text/flickdock-demo')) return;
-  event.preventDefault();
-  event.dataTransfer.dropEffect = 'copy';
-  dropzone.classList.add('is-drag-over');
-});
-dropzone.addEventListener('dragleave', (event) => {
-  if (!dropzone.contains(event.relatedTarget)) dropzone.classList.remove('is-drag-over');
-});
-dropzone.addEventListener('drop', (event) => {
-  const kind = event.dataTransfer.getData('text/flickdock-demo');
-  if (!Object.hasOwn(demoFiles, kind)) return;
-  event.preventDefault();
-  dropzone.classList.remove('is-drag-over');
-  addDemoFile(kind, dragSource);
-});
-
-toggle.addEventListener('click', () => {
-  const expanding = overview.hidden;
-  overview.hidden = !expanding;
-  toggle.setAttribute('aria-expanded', String(expanding));
-  toggle.innerHTML = expanding ? '收起总览 <span aria-hidden="true">↗</span>' : '展开总览 <span aria-hidden="true">↗</span>';
-  announcement.textContent = expanding ? `总览已展开，共${items.length}项。` : '总览已收起。';
-});
-reset.addEventListener('click', () => {
-  items = [...seed];
-  renderDemo();
-  announcement.textContent = '演示已重置为三项示例文件。';
-});
-renderDemo();
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: .18 });
-  document.querySelectorAll('.section-copy, .feature-head, .feature-row, .steps-lead, .steps-copy, .download-heading, .download-card').forEach((element) => {
-    element.classList.add('reveal');
-    observer.observe(element);
-  });
-}
+const parallax = document.querySelector('[data-parallax="hero"]');
+parallax.addEventListener('mousemove', handleHeroParallax);
+parallax.addEventListener('mouseleave', resetHeroParallax);
