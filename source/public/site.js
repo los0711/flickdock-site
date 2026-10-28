@@ -1,6 +1,5 @@
 // Website illustrations are demonstrations; they do not access local files.
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
 let currentScene = 0;
 let sceneTimer = null;
 let demoVisible = false;
@@ -18,12 +17,8 @@ function setTheme(theme, remember = true) {
 }
 let savedTheme;
 try { savedTheme = localStorage.getItem('flickdock-site-theme'); } catch {}
-setTheme(savedTheme || (systemTheme.matches ? 'light' : 'dark'), false);
-systemTheme.addEventListener('change', () => {
-  let value;
-  try { value = localStorage.getItem('flickdock-site-theme'); } catch {}
-  if (!value) setTheme(systemTheme.matches ? 'light' : 'dark', false);
-});
+// The official website starts dark; an explicit visitor choice is retained.
+setTheme(savedTheme === 'light' ? 'light' : 'dark', false);
 
 function syncPlayback() {
   clearInterval(sceneTimer);

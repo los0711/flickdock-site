@@ -301,6 +301,8 @@ body.theme-light [role="tabpanel"]:focus-visible { outline-color: #005cc5; }
 .demo-playback:hover { background: var(--card-hover-bg); color: var(--text-primary); }
 #theme-btn-dark, #theme-btn-light { min-height: 32px; padding: 4px 10px; color: var(--text-secondary); background: transparent; box-shadow: none; }
 #theme-btn-dark[aria-pressed="true"], #theme-btn-light[aria-pressed="true"] { color: var(--text-primary); background: rgba(255,255,255,.14); }
+#theme-btn-dark[aria-pressed="false"]:hover, #theme-btn-light[aria-pressed="false"]:hover { background: rgba(255,255,255,.06); }
+body.theme-light #theme-btn-dark[aria-pressed="false"]:hover, body.theme-light #theme-btn-light[aria-pressed="false"]:hover { background: rgba(0,0,0,.045); }
 body.theme-light #theme-btn-dark[aria-pressed="true"],
 body.theme-light #theme-btn-light[aria-pressed="true"],
 body.theme-light #demo-tabs button[aria-selected="true"] { background: #fff; box-shadow: 0 1px 4px #14213d1a; }
