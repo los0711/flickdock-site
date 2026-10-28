@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="dark scroll-smooth">
+<html lang="zh-CN" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="ambient-canvas min-h-screen flex flex-col justify-between relative">
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
 
   <!-- ==================== 顶部毛玻璃导航栏 ==================== -->
   <header class="liquid-nav sticky top-0 z-40 h-16 w-full">
@@ -21,7 +22,7 @@
           <span class="font-bold text-[15px] tracking-tight text-white">FlickDock</span>
         </a>
 
-        <nav class="hidden sm:flex items-center gap-7 text-xs font-medium text-zinc-400">
+        <nav aria-label="主导航" class="hidden sm:flex items-center gap-7 text-xs font-medium text-zinc-400">
           <a href="#theatre" class="hover:text-white transition">动态演示</a>
           <a href="#how-it-works" class="hover:text-white transition">核心体验</a>
           <a href="#scenarios" class="hover:text-white transition">使用场景</a>
@@ -30,11 +31,11 @@
 
       <div class="flex items-center gap-2.5">
         <div class="flex items-center p-0.5 rounded-xl bg-white/[0.06] border border-white/[0.08]">
-          <button data-ui-action="theme-dark" id="theme-btn-dark" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/15 text-white transition">
-            🌙 暗色
+          <button data-ui-action="theme-dark" id="theme-btn-dark" type="button" aria-label="使用深色外观" aria-pressed="false" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/15 text-white transition">
+            深色
           </button>
-          <button data-ui-action="theme-light" id="theme-btn-light" class="px-2.5 py-1 rounded-lg text-xs font-medium text-zinc-400 hover:text-white transition">
-            ☀️ 浅色
+          <button data-ui-action="theme-light" id="theme-btn-light" type="button" aria-label="使用浅色外观" aria-pressed="false" class="px-2.5 py-1 rounded-lg text-xs font-medium text-zinc-400 hover:text-white transition">
+            浅色
           </button>
         </div>
 
@@ -46,14 +47,14 @@
   </header>
 
   <!-- ==================== 主体内容容器 ==================== -->
-  <main class="flex-1 max-w-6xl w-full mx-auto px-6 lg:px-10">
+  <main id="main-content" class="flex-1 max-w-6xl w-full mx-auto px-6 lg:px-10">
 
     <!-- ==================== 第一屏：Apple 旗舰级标题与 3D 舞台 ==================== -->
-    <section class="pt-14 sm:pt-20 pb-20 flex flex-col items-center text-center relative">
+    <section class="hero-section pt-14 sm:pt-20 pb-20 flex flex-col items-center text-center relative">
       <div class="max-w-4xl mx-auto flex flex-col items-center">
         <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.10] shadow-inner text-xs font-medium text-zinc-300 mb-8">
           <span class="w-2 h-2 rounded-full bg-hig-blue shadow-[0_0_8px_#0A84FF]"></span>
-          <span>FlickDock · 为 Windows 与 macOS 重新发明桌面暂存</span>
+          <span>Windows + macOS · 单一永久搁架</span>
         </div>
 
         <!-- 主标题：行间距拉大，呼吸感十足 -->
@@ -67,8 +68,8 @@
         </h1>
 
         <p class="text-base sm:text-[20px] text-zinc-400 max-w-2xl mx-auto leading-[1.75] font-normal mt-7 sm:mt-8">
-          抓起文件、图片或文字轻轻一晃，液态毛玻璃搁架即刻在指针旁浮现。<br class="hidden sm:inline" />
-          随时悬停大预览、一键打包归档，或在 Windows 与 Mac 之间无感直传。
+          拖住文件、图片或文字，晃动唤出搁架，松手收好。<br class="hidden sm:inline" />
+          预览、复制、打包，让资料在 Windows 与 Mac 之间接力。
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-4 mt-9 sm:mt-10">
@@ -97,12 +98,12 @@
         <div id="hero-3d-deck" class="hero-3d-deck p-6 sm:p-10 min-h-[390px] sm:min-h-[430px] relative overflow-hidden flex items-center justify-center">
           <div class="absolute top-4 inset-x-8 flex items-center justify-between text-[11px] text-zinc-500 pointer-events-none">
             <div class="flex items-center gap-2">
-              <span class="font-semibold text-zinc-300"> / ⊞ Desktop Workspace</span>
+              <span class="font-semibold text-zinc-300">Windows + macOS · 界面示意</span>
               <span>·</span>
               <span>常驻系统托盘与屏幕边缘</span>
             </div>
             <div class="flex items-center gap-3">
-              <span class="text-hig-green">● 云同步就绪</span>
+              <span class="text-hig-green">云端与局域网</span>
               <span>Wi‑Fi 局域网直连</span>
             </div>
           </div>
@@ -125,7 +126,7 @@
               <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-700 flex items-center justify-center text-[10px] font-bold keep-white">RAW</div>
               <div>
                 <div class="text-xs font-semibold text-white">Studio_Shot_01.png</div>
-                <div class="text-[11px] text-hig-cyan">⚡ 往返一甩 · 瞬间入架</div>
+                <div class="text-[11px] text-hig-cyan">往返晃动 · 松手收好</div>
               </div>
             </div>
           </div>
@@ -139,8 +140,8 @@
                 <span class="text-xs font-bold text-white ml-1">FlickDock</span>
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-[11px] px-2 py-0.5 rounded-full bg-hig-green/20 text-hig-green font-medium">☁️ 已同步</span>
-                <span class="w-6 h-6 rounded-lg bg-hig-blue/20 text-hig-blue flex items-center justify-center text-xs">📌</span>
+                <span class="text-[11px] px-2 py-0.5 rounded-full bg-hig-green/20 text-hig-green font-medium">已同步</span>
+                <span class="w-6 h-6 rounded-lg bg-hig-blue/20 text-hig-blue flex items-center justify-center text-xs"><img src="/assets/control-check.svg" alt="" width="16" height="16"></span>
               </div>
             </div>
 
@@ -185,12 +186,12 @@
               <div class="w-9 h-9 rounded-xl bg-hig-cyan/15 text-hig-cyan flex items-center justify-center text-base font-bold">⇄</div>
               <div>
                 <div class="text-xs font-bold text-white">Win ⇄ Mac 跨端接力</div>
-                <div class="text-[11px] text-zinc-400">云端原文件同步 · 局域网秒传</div>
+                <div class="text-[11px] text-zinc-400">原文件云同步 · 局域网直传</div>
               </div>
             </div>
 
             <div class="liquid-window px-4 py-3 flex items-center gap-3">
-              <div class="w-9 h-9 rounded-xl bg-hig-green/15 text-hig-green flex items-center justify-center text-base font-bold">🗜️</div>
+              <div class="w-9 h-9 rounded-xl bg-hig-green/15 text-hig-green flex items-center justify-center text-base font-bold"><img src="/assets/content-archive.svg" alt="" width="24" height="24"></div>
               <div>
                 <div class="text-xs font-bold text-white">多选一键打包 ZIP</div>
                 <div class="text-[11px] text-zinc-400">归档后自动回到搁架顶部</div>
@@ -207,24 +208,24 @@
         <div class="space-y-2">
           <span class="text-xs font-semibold uppercase tracking-wider text-hig-blue">Interactive Demo</span>
           <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">三幕动态演示，看它如何工作</h2>
-          <p class="text-sm text-zinc-400">从晃动唤出、分类预览到双机互传，一切都在弹指间自然发生。</p>
+          <p class="text-sm text-zinc-400">三段动画展示操作方式，不会读取或传输你的文件。</p>
         </div>
 
-        <div class="inline-flex items-center p-1 rounded-2xl bg-white/[0.06] border border-white/[0.08] self-start">
-          <button data-ui-action="scene-0" id="scene-tab-0" class="px-4 py-2 rounded-xl text-xs font-semibold bg-white/15 text-white shadow-sm transition">
+        <div class="demo-controls"><div id="demo-tabs" role="tablist" aria-label="选择功能演示" class="inline-flex items-center p-1 rounded-2xl bg-white/[0.06] border border-white/[0.08] self-start">
+          <button data-ui-action="scene-0" id="scene-tab-0" type="button" role="tab" aria-controls="scene-0" aria-selected="true" tabindex="0" class="px-4 py-2 rounded-xl text-xs font-semibold bg-white/15 text-white shadow-sm transition">
             ① 晃动唤出
           </button>
-          <button data-ui-action="scene-1" id="scene-tab-1" class="px-4 py-2 rounded-xl text-xs font-semibold text-zinc-400 hover:text-white transition">
+          <button data-ui-action="scene-1" id="scene-tab-1" type="button" role="tab" aria-controls="scene-1" aria-selected="false" tabindex="-1" class="px-4 py-2 rounded-xl text-xs font-semibold text-zinc-400 hover:text-white transition">
             ② 悬停大预览
           </button>
-          <button data-ui-action="scene-2" id="scene-tab-2" class="px-4 py-2 rounded-xl text-xs font-semibold text-zinc-400 hover:text-white transition">
-            ③ 跨端秒传
+          <button data-ui-action="scene-2" id="scene-tab-2" type="button" role="tab" aria-controls="scene-2" aria-selected="false" tabindex="-1" class="px-4 py-2 rounded-xl text-xs font-semibold text-zinc-400 hover:text-white transition">
+            ③ 跨端互传
           </button>
-        </div>
+        </div><button type="button" id="demo-playback" class="demo-playback" aria-pressed="true">暂停演示</button></div>
       </div>
 
-      <div class="stage-container rounded-[28px] h-[460px] sm:h-[500px] relative overflow-hidden flex items-center justify-center p-6">
-        <div id="scene-0" class="w-full h-full flex flex-col items-center justify-center relative">
+      <div id="demo-stage" aria-label="FlickDock 动画示意" class="stage-container rounded-[28px] h-[460px] sm:h-[500px] relative overflow-hidden flex items-center justify-center p-6">
+        <div id="scene-0" role="tabpanel" aria-labelledby="scene-tab-0" tabindex="0" class="w-full h-full flex flex-col items-center justify-center relative">
           <div class="anim-shelf-pop liquid-window w-[316px] overflow-hidden">
             <div class="h-11 px-4 border-b border-white/[0.06] flex items-center justify-between">
               <div class="flex items-center gap-1.5">
@@ -279,7 +280,7 @@
           </div>
         </div>
 
-        <div id="scene-1" class="hidden w-full h-full flex flex-col items-center justify-center relative">
+        <div id="scene-1" role="tabpanel" aria-labelledby="scene-tab-1" tabindex="0" hidden class="hidden w-full h-full flex flex-col items-center justify-center relative">
           <div class="liquid-window w-full max-w-[780px] h-[360px] flex flex-col overflow-hidden text-left">
             <div class="h-11 px-4 border-b border-white/[0.06] flex items-center justify-between text-xs">
               <div class="flex items-center gap-2.5">
@@ -353,7 +354,7 @@
           </div>
         </div>
 
-        <div id="scene-2" class="hidden w-full h-full flex flex-col items-center justify-center relative">
+        <div id="scene-2" role="tabpanel" aria-labelledby="scene-tab-2" tabindex="0" hidden class="hidden w-full h-full flex flex-col items-center justify-center relative">
           <div class="w-full max-w-[720px] flex items-center justify-between gap-4 px-4">
             <div class="liquid-window w-56 p-4 text-left space-y-3">
               <div class="flex items-center justify-between text-xs">
@@ -477,7 +478,7 @@
             </div>
             <svg class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             <div class="px-4 py-3 rounded-2xl bg-hig-steel/25 border border-hig-cyan/40 flex items-center gap-2.5">
-              <span class="text-xl">🗜️</span>
+              <span class="text-xl"><img src="/assets/content-archive.svg" alt="" width="24" height="24"></span>
               <div class="text-left text-xs">
                 <div class="font-bold text-white">项目汇总.zip</div>
                 <div class="text-[10px] text-hig-cyan">自动加回搁架顶部</div>
@@ -498,14 +499,14 @@
     <section id="scenarios" class="py-20 space-y-10 scroll-mt-12">
       <div class="text-center max-w-2xl mx-auto space-y-2">
         <span class="text-xs font-semibold uppercase tracking-wider text-hig-blue">Use Cases</span>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">这些时刻，FlickDock 为你省下一半精力</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">这些时刻，FlickDock 让资料保持连贯</h2>
         <p class="text-sm text-zinc-400">无论是创作、办公还是跨设备协同，它都是你桌面上最顺手的中转站。</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <div class="showcase-card p-6 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-hig-blue/15 text-hig-blue flex items-center justify-center text-2xl">🎨</div>
+            <div class="w-12 h-12 rounded-2xl bg-hig-blue/15 text-hig-blue flex items-center justify-center text-2xl"><img src="/assets/content-image.svg" alt="" width="28" height="28"></div>
             <h3 class="text-base font-bold text-white">设计师灵感与素材采风</h3>
             <p class="text-xs text-zinc-400 leading-relaxed">
               浏览网页看到心仪的海报、配色与参考图，随手一甩全部收进搁架；打开 Figma 或 PS 后一次性拖入画布，思路永不中断。
@@ -516,18 +517,18 @@
 
         <div class="showcase-card p-6 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-hig-cyan/15 text-hig-cyan flex items-center justify-center text-2xl">💻</div>
+            <div class="w-12 h-12 rounded-2xl bg-hig-cyan/15 text-hig-cyan flex items-center justify-center text-2xl"><img src="/assets/control-nearby.svg" alt="" width="28" height="28"></div>
             <h3 class="text-base font-bold text-white">Win 与 Mac 双机无缝接力</h3>
             <p class="text-xs text-zinc-400 leading-relaxed">
-              台式机剪辑渲染好的视频或文档，放进搁架即可同步至 MacBook；大体积素材更可通过局域网直连面对面秒传，免去插拔 U 盘。
+              台式机剪辑渲染好的视频或文档，放进搁架即可同步至 MacBook；大体积素材也可通过局域网在设备间直接传输，免去插拔 U 盘。
             </p>
           </div>
-          <div class="pt-3 border-t border-white/[0.06] text-[11px] text-hig-cyan font-medium">云端自动同步 + 内网满速直传</div>
+          <div class="pt-3 border-t border-white/[0.06] text-[11px] text-hig-cyan font-medium">云端同步 + 局域网直接传输</div>
         </div>
 
         <div class="showcase-card p-6 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-hig-purple/15 text-hig-purple flex items-center justify-center text-2xl">📝</div>
+            <div class="w-12 h-12 rounded-2xl bg-hig-purple/15 text-hig-purple flex items-center justify-center text-2xl"><img src="/assets/content-text.svg" alt="" width="28" height="28"></div>
             <h3 class="text-base font-bold text-white">写方案与多段资料摘录</h3>
             <p class="text-xs text-zinc-400 leading-relaxed">
               查阅多篇文献、网页链接与金句段落时，划词拖进搁架暂存。撰写报告时按顺序逐条点击复制或直接拖入文档，井井有条。
@@ -538,10 +539,10 @@
 
         <div class="showcase-card p-6 flex flex-col justify-between space-y-6">
           <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-hig-green/15 text-hig-green flex items-center justify-center text-2xl">📦</div>
+            <div class="w-12 h-12 rounded-2xl bg-hig-green/15 text-hig-green flex items-center justify-center text-2xl"><img src="/assets/content-archive.svg" alt="" width="28" height="28"></div>
             <h3 class="text-base font-bold text-white">跨文件夹整理与打包发送</h3>
             <p class="text-xs text-zinc-400 leading-relaxed">
-              需要把分散在桌面、下载目录和不同磁盘里的十几份文件发给客户？逐个丢进搁架后点“打包全部”，一秒生成整洁的 ZIP 归档包。
+              需要把分散在桌面、下载目录和不同磁盘里的十几份文件发给客户？逐个丢进搁架后点“打包全部”，生成整洁的 ZIP 归档包。
             </p>
           </div>
           <div class="pt-3 border-t border-white/[0.06] text-[11px] text-hig-green font-medium">一键生成 ZIP 并自动定位到搁架顶部</div>
@@ -554,7 +555,7 @@
       <div class="liquid-window p-10 sm:p-14 text-center space-y-8 relative overflow-hidden">
         <div class="space-y-3 max-w-xl mx-auto">
           <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">现在，让你的桌面轻装上阵</h2>
-          <p class="text-sm text-zinc-400">免费下载 FlickDock，在 Windows 与 macOS 上体验如丝般顺滑的拖拽暂存与跨端互传。</p>
+          <p class="text-sm text-zinc-400">免费下载 FlickDock，在 Windows 与 macOS 上体验拖拽收集、内容预览与跨端互传。</p>
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-4">
@@ -579,7 +580,7 @@
           <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="https://gitee.com/rooogerluo/flick-dock-macos-releases-2/releases/download/v1.8.13/FlickDock-1.8.13-macOS-arm64.dmg" data-installer="mac-arm">Mac Apple 芯片 · 1.8.13 ↗</a>
           <a class="btn-press px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs text-zinc-200 transition" href="https://gitee.com/rooogerluo/flick-dock-macos-releases-2/releases/download/v1.8.13/FlickDock-1.8.13-macOS-x86_64.dmg" data-installer="mac-intel">Mac Intel · 1.8.13 ↗</a>
         </div>
-        <p class="text-xs text-zinc-500">支持 Windows 10 / 11 (64-bit) 与 macOS 14.4+ · 常驻系统托盘，轻量零打扰</p>
+        <p class="text-xs text-zinc-500">支持 Windows 10 / 11 (64-bit) 与 macOS 14.4+ · 常驻系统托盘，支持后台运行</p>
       </div>
     </section>
 
@@ -601,9 +602,9 @@
     </div>
   </footer>
 
-  <div id="promo-toast" class="fixed bottom-7 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-2 transition-all duration-300 px-5 py-2.5 rounded-full bg-charcoal-800/95 border border-white/15 text-xs text-white shadow-2xl flex items-center gap-2.5 whitespace-nowrap">
+  <div role="status" aria-live="polite" aria-atomic="true" id="promo-toast" class="fixed bottom-7 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-2 transition-all duration-300 px-5 py-2.5 rounded-full bg-charcoal-800/95 border border-white/15 text-xs text-white shadow-2xl flex items-center gap-2.5 whitespace-nowrap">
     <span class="w-2 h-2 rounded-full bg-hig-green shrink-0"></span>
-    <span id="promo-toast-text">正在为您开始下载...</span>
+    <span id="promo-toast-text"></span>
   </div>
 
   <script src="/site.js" defer></script>

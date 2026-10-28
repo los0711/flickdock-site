@@ -21,7 +21,7 @@
       --text-primary: #F5F5F7;
       --text-secondary: #A1A1AA;
       --spring-easing: cubic-bezier(0.22, 1, 0.36, 1);
-      --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei UI", sans-serif;
+      --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "HarmonyOS Sans SC", "Segoe UI", "Noto Sans CJK SC", sans-serif;
     }
 
     /* ==================== 浅色模式 (Apple Studio Daylight - 精准校准颜色与边框) ==================== */
@@ -47,7 +47,6 @@
     * {
       box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
-      user-select: none;
     }
 
     body {
@@ -261,3 +260,128 @@
     .stack-0 { transform: translateY(0px) scale(1) rotate(0deg); z-index: 30; }
     .stack-1 { transform: translateY(-8px) scale(0.94) rotate(-3deg); z-index: 20; opacity: 0.85; }
     .stack-2 { transform: translateY(-16px) scale(0.88) rotate(3deg); z-index: 10; opacity: 0.65; }
+
+/* Production refinements preserve the supplied HTML's composition. These are
+   website materials, not the native Apple Liquid Glass implementation. */
+:root { color-scheme: dark; }
+html { scroll-padding-top: 88px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button, a.btn-press { white-space: nowrap; }
+button:focus-visible, a:focus-visible, [role="tabpanel"]:focus-visible {
+  outline: 2px solid #64d2ff;
+  outline-offset: 4px;
+}
+body.theme-light button:focus-visible,
+body.theme-light a:focus-visible,
+body.theme-light [role="tabpanel"]:focus-visible { outline-color: #005cc5; }
+.skip-link {
+  position: fixed; left: 16px; top: 12px; z-index: 100;
+  padding: 12px 16px; background: #fff; color: #111; border-radius: 10px;
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+[hidden] { display: none !important; }
+.hero-section { padding-top: 48px; padding-bottom: 64px; }
+.hero-section h1 > span { font-size: clamp(34px, 4.6vw, 66px); }
+.hero-section h1 > span + span { margin-top: 12px; }
+.hero-section h1 + p { font-size: 17px; line-height: 1.75; margin-top: 24px; }
+.hero-section #hero-stage-wrap { margin-top: 48px; }
+.hero-3d-deck { min-height: 360px; transform: rotateX(4deg); }
+.hero-3d-deck > div:first-child { flex-wrap: wrap; gap: 8px; }
+.hero-3d-deck > div:first-child > div:first-child { flex-wrap: wrap; }
+.hero-3d-deck > div:first-child > div:last-child { display: none; }
+.hero-3d-deck > .hidden.md\:flex { max-width: 230px; }
+.hero-3d-deck > .hidden.md\:flex .liquid-window { padding: 10px 12px; }
+.hero-3d-deck .dispersion-glass { width: 300px; }
+.demo-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; flex-shrink: 0; }
+#demo-tabs button { min-height: 38px; color: var(--text-secondary); background: transparent; box-shadow: none; }
+#demo-tabs button[aria-selected="true"] { color: var(--text-primary); background: rgba(255,255,255,.12); box-shadow: 0 1px 4px #0002; }
+.demo-playback { min-height: 38px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 12px; }
+.demo-playback:hover { background: var(--card-hover-bg); color: var(--text-primary); }
+#theme-btn-dark, #theme-btn-light { min-height: 32px; padding: 4px 10px; color: var(--text-secondary); background: transparent; box-shadow: none; }
+#theme-btn-dark[aria-pressed="true"], #theme-btn-light[aria-pressed="true"] { color: var(--text-primary); background: rgba(255,255,255,.14); }
+body.theme-light #theme-btn-dark[aria-pressed="true"],
+body.theme-light #theme-btn-light[aria-pressed="true"],
+body.theme-light #demo-tabs button[aria-selected="true"] { background: #fff; box-shadow: 0 1px 4px #14213d1a; }
+body.theme-light .text-zinc-500 { color: #63636b !important; }
+body.theme-light .text-hig-cyan, body.theme-light .text-sky-300 { color: #0068a8; }
+body.theme-light .text-hig-blue { color: #0069d9; }
+body.theme-light .text-hig-green { color: #20733c; }
+body.theme-light .text-hig-purple, body.theme-light .text-purple-300 { color: #803ac1; }
+body.theme-light .text-hig-orange, body.theme-light .text-amber-400 { color: #925400; }
+body.theme-light .text-rose-300 { color: #b83a55; }
+body.theme-light .bg-charcoal-800\/95 { background-color: #fff !important; }
+.bg-hig-blue { background-color: #0066d6; }
+[data-ui-action="download-windows"] { background-color: #0066d6; }
+button[data-ui-action="download-windows"]:hover,
+header a[href="#download"]:hover { background-color: #0059bd; }
+body.theme-light .hero-section h1 > span + span { background-image: linear-gradient(100deg, #0065c9, #1675ae, #4b6185); }
+#promo-toast { max-width: calc(100vw - 32px); white-space: normal; line-height: 1.5; }
+#promo-toast.opacity-0 { visibility: hidden; }
+.motion-paused [class*="anim-"] { animation-play-state: paused !important; }
+.motion-paused .anim-shelf-pop { opacity: 1 !important; transform: none !important; animation: none; }
+.motion-paused .anim-cursor-shake, .motion-paused .anim-drag-clone { opacity: 0; }
+.motion-paused .anim-edge-slide { opacity: 1 !important; transform: translateX(0) !important; }
+
+@media (min-width: 1024px) {
+  .hero-3d-deck > .hidden.md\:flex { display: flex; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-3d-deck > .hidden.md\:flex { display: none; }
+}
+@media (max-width: 767px) {
+  .liquid-nav > div { padding-left: 20px; padding-right: 20px; }
+  .liquid-nav > div > div:first-child { gap: 12px; }
+  .liquid-nav a[href="#download"] { display: none; }
+  .hero-section { padding-top: 36px; }
+  .hero-section h1 > span { font-size: clamp(29px, 7.7vw, 48px); }
+  .hero-section h1 + p { font-size: 15px; margin-top: 20px; }
+  .hero-section .btn-press { min-height: 48px; padding: 13px 22px; font-size: 14px; }
+  .hero-section #hero-stage-wrap { margin-top: 36px; }
+  .hero-3d-deck { min-height: 350px; padding: 18px; transform: none; }
+  .hero-3d-deck > div:first-child { left: 16px; right: 16px; font-size: 10px; }
+  .hero-3d-deck > div:first-child span:last-child { display: none; }
+  .hero-3d-deck .dispersion-glass { width: min(282px, 100%); margin-top: 20px; padding: 16px; }
+  #theatre { padding-top: 48px; padding-bottom: 48px; }
+  #theatre h2 { font-size: 28px; }
+  #demo-stage { padding: 12px; height: 430px; }
+  #demo-tabs { max-width: 100%; width: 100%; }
+  #demo-tabs button { padding: 8px 10px; font-size: 11px; flex: 1; }
+  .demo-controls { width: 100%; gap: 10px; }
+  .demo-playback { margin-left: auto; }
+  #scene-0 .anim-shelf-pop { width: min(290px, 100%); }
+  #scene-0 > div:last-child { font-size: 11px; text-align: center; bottom: 0; }
+  #scene-1 > .liquid-window { height: 350px; }
+  #scene-1 > .liquid-window > div:first-child { padding: 0 10px; }
+  #scene-1 > .liquid-window > div:first-child > div:last-child { display: none; }
+  #scene-1 .grid-cols-12 { grid-template-columns: 1fr 1fr; }
+  #scene-1 .col-span-3 { display: none; }
+  #scene-1 .col-span-5, #scene-1 .col-span-4 { grid-column: auto; min-width: 0; padding: 8px; }
+  #scene-1 .col-span-5 > div { gap: 6px; padding: 8px 4px; }
+  #scene-1 .col-span-5 > div > div:first-child { display: none; }
+  #scene-1 .col-span-4 .h-36 { height: 120px; }
+  #scene-0 > div:last-child, #scene-1 > div:last-child, #scene-2 > div:last-child { bottom: 0; font-size: 11px; text-align: center; max-width: 280px; line-height: 1.5; }
+  #scene-1 > .liquid-window { height: 322px; margin-bottom: 42px; }
+  #scene-2 { padding-bottom: 40px; }
+  #scene-2 > div:first-child { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 0; max-width: 260px; }
+  #scene-2 .liquid-window { width: 100%; padding: 12px; }
+  #scene-2 .flex-1 { gap: 4px; }
+  #scene-2 .flex-1 > span { font-size: 10px; }
+  #download > .liquid-window { padding: 32px 20px; }
+  #download h2 { font-size: 28px; }
+  #download [aria-label="选择安装包"] { display: grid; gap: 10px; width: 100%; }
+  #download [data-installer] { padding: 14px 18px; font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .hero-3d-deck, .showcase-card:hover { transform: none !important; }
+  .anim-shelf-pop, .anim-edge-slide { opacity: 1 !important; transform: none !important; }
+  .anim-cursor-shake, .anim-drag-clone { display: none !important; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  :root { --glass-surface: #1c1c1e; --glass-nav: #161616; --card-bg: #202022; }
+  body.theme-light { --glass-surface: #fff; --glass-nav: #f4f6fa; --card-bg: #fff; }
+  *, *::before, *::after { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+}
