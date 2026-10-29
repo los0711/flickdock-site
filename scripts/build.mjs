@@ -6,7 +6,7 @@ import { execFileSync } from 'node:child_process';
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const output = join(root, 'dist');
 const generatedNames = new Set(['index.html', 'styles.css', 'site.js','updates']);
-const channels=['latest.json','macos-arm64.json','macos-arm64-auto.json','macos-x86_64.json','macos-x86_64-auto.json'];
+const channels=['latest.json','macos-arm64.json','macos-arm64-auto.json','macos-x86_64.json','macos-x86_64-auto.json','macos-arm64-auto-v2.json','macos-x86_64-auto-v2.json'];
 
 if (existsSync(output)) {
   for (const name of readdirSync(output)) {
