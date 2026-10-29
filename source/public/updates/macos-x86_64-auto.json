@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "version": "1.8.17",
+  "version": "1.8.18",
   "platform": "darwin",
   "architecture": "x86_64",
-  "published_at": "2026-10-29T02:41:15Z",
-  "notes": "广域网传输更名为“远程传输”。局域网与远程页面可直接切换，接收码与设备码点击复制；接收码增加自动刷新圆环倒计时，修复旧码和文件准备过程中过期的问题。最近设备可直接发送且支持删除，在线状态实时更新；对方离线时会明确提示无法发送。\n保持 P2P 优先，增加经过校验的 TLS 中继适配并优化本地缓冲、文件流水线与云同步磁盘读取；传输显示平滑速度、预计剩余时间及 TURN 用量，记录保留本次中继流量。\n云端上传进度实时推送给其他设备，修复 Mac 首次打开总览的登录状态和设备改名裁切；设备操作改为靠右的矢量图标。\n总览左上角改为 ClickDock；空搁架增加居中的虚线投放框，悬停变蓝，点击选择文件。整个总览及传输窗口均可拖入文件。\n修复外观和列表／图标切换丢失选中状态，优化菜单和设置下拉框圆角。新版本提示增加版本标记与绿色更新按钮，提升自动检查频率。\n超过 200 MiB 的内容可一键转到远程传输并自动加入待发送文件。Mac 推荐使用 PKG 安装，覆盖应用程序目录的旧版；运行中会先提示关闭。自动更新继续使用校验后的 ZIP。",
+  "published_at": "2026-10-29T06:02:58Z",
+  "notes": "修复部分网络连接一直等待，新增可信备用入口和 Windows 应用联网修复；优化附近设备 P2P 大文件传输、系统代理网络下的中继传输与设置响应；修复提示错位、小屏登录注册裁切、更新进度残留、拖放悬停与返回总览；Mac 支持菜单栏常驻。",
   "installer": {
-    "filename": "FlickDock-1.8.17-macOS-x86_64.zip",
-    "url": "https://gitee.com/rooogerluo/flick-dock-macos-releases-4/releases/download/v1.8.17/FlickDock-1.8.17-macOS-x86_64.zip",
-    "size": 79285106,
-    "sha256": "118f88bf0e574d635203931ac742786f5de90f0203d0e4144cf769a2645290a2"
+    "filename": "FlickDock-1.8.18-macOS-x86_64.zip",
+    "url": "https://gitee.com/rooogerluo/flick-dock-macos-releases-5/releases/download/v1.8.18/FlickDock-1.8.18-macOS-x86_64.zip",
+    "size": 79290585,
+    "sha256": "0298ec4420206752e14d751d2fae24713578076aa69335b6f62126647b9abe39"
   }
 }
