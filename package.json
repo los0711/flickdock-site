@@ -1,7 +1,7 @@
 {
   "name": "flickdock-site",
   "private": true,
-  "version": "1.8.19",
+  "version": "1.8.20",
   "scripts": {
     "build": "tailwindcss -c tailwind.config.cjs -i source/tailwind.input.css -o source/public/styles.css --minify && node scripts/build.mjs",
     "deploy": "npm run build && wrangler deploy"
