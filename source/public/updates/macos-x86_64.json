@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "version": "1.8.16",
+  "version": "1.8.17",
   "platform": "darwin",
   "architecture": "x86_64",
-  "published_at": "2026-10-28T20:23:28Z",
-  "notes": "新增广域网传输：支持不同网络、不同设备，异地也能传文件；无需登录，凭接收码配对并经接收方确认，优先 P2P，必要时自动使用中继。小预览通过“互传”选择局域网或广域网，总览新增广域网入口。\n优化文件夹云同步与传输吞吐，修复大文件夹只显示约 4 KB、同步重试及 Mac 局域网发送失败。\n修复 Mac 触发、展开收缩、登录状态恢复与检查更新；Windows 使用鸿蒙字体并统一字号、对齐与控件热区，完成检查后立即隐藏进度。\n改进设置账户与设备排版、设备改名、传输完成和中断后的收尾、拖入边框与最近记录滚动。\nMac 手动安装请使用 DMG 或 PKG；ZIP 用于软件内自动更新。",
+  "published_at": "2026-10-29T02:40:32Z",
+  "notes": "广域网传输更名为“远程传输”。局域网与远程页面可直接切换，接收码与设备码点击复制；接收码增加自动刷新圆环倒计时，修复旧码和文件准备过程中过期的问题。最近设备可直接发送且支持删除，在线状态实时更新；对方离线时会明确提示无法发送。\n保持 P2P 优先，增加经过校验的 TLS 中继适配并优化本地缓冲、文件流水线与云同步磁盘读取；传输显示平滑速度、预计剩余时间及 TURN 用量，记录保留本次中继流量。\n云端上传进度实时推送给其他设备，修复 Mac 首次打开总览的登录状态和设备改名裁切；设备操作改为靠右的矢量图标。\n总览左上角改为 ClickDock；空搁架增加居中的虚线投放框，悬停变蓝，点击选择文件。整个总览及传输窗口均可拖入文件。\n修复外观和列表／图标切换丢失选中状态，优化菜单和设置下拉框圆角。新版本提示增加版本标记与绿色更新按钮，提升自动检查频率。\n超过 200 MiB 的内容可一键转到远程传输并自动加入待发送文件。Mac 推荐使用 PKG 安装，覆盖应用程序目录的旧版；运行中会先提示关闭。自动更新继续使用校验后的 ZIP。",
   "installer": {
-    "filename": "FlickDock-1.8.16-macOS-x86_64.dmg",
-    "url": "https://gitee.com/rooogerluo/flick-dock-macos-releases-4/releases/download/v1.8.16/FlickDock-1.8.16-macOS-x86_64.dmg",
-    "size": 87084294,
-    "sha256": "582403f0e303fe10ae4dbc911aa348f44a2cd293849f8be429b5b9dcbd5313f2"
+    "filename": "FlickDock-1.8.17-macOS-x86_64.dmg",
+    "url": "https://gitee.com/rooogerluo/flick-dock-macos-releases-4/releases/download/v1.8.17/FlickDock-1.8.17-macOS-x86_64.dmg",
+    "size": 88513522,
+    "sha256": "9b03ff604e3710b7b82ec22b9bc1463c6366bde0c86daab8217a4cec2633cb21"
   }
 }
