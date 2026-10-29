@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "version": "1.8.18",
+  "version": "1.8.19",
   "platform": "darwin",
   "architecture": "x86_64",
-  "published_at": "2026-10-29T06:02:16Z",
-  "notes": "修复部分网络连接一直等待，新增可信备用入口和 Windows 应用联网修复；优化附近设备 P2P 大文件传输、系统代理网络下的中继传输与设置响应；修复提示错位、小屏登录注册裁切、更新进度残留、拖放悬停与返回总览；Mac 支持菜单栏常驻。",
+  "published_at": "2026-10-29T12:03:48Z",
+  "notes": "新增同账号统一剪贴板：小于 20MB 的文本、链接、原图与文件静默同步，最新复制覆盖旧内容，24 小时内可重复粘贴。\n搁架在文件准备时就显示正在同步的占位，其他设备无需等待上传完成。\n远程传输支持同账号设备免设备码发送，显示实时在线状态，并在同一局域网时推荐局域网互传。\n优化指针所在搁架的粘贴、触发与返回总览动画、网络状态显示；修复更新进度残留及按钮焦点样式。\n更新提示仅在总览内居中显示，包含更新内容；关闭后次日再提醒。\n优化大文件准备与传输结束处理，修复取消传输时流量统计遗漏及界面等待。",
   "installer": {
-    "filename": "FlickDock-1.8.18-macOS-x86_64.dmg",
-    "url": "https://gitee.com/rooogerluo/flick-dock-macos-releases-5/releases/download/v1.8.18/FlickDock-1.8.18-macOS-x86_64.dmg",
-    "size": 87103289,
-    "sha256": "9eef3bcbdaa292a824551bf27d7a84f865f80bbc15a40062d6b95aa091ed8282"
+    "filename": "FlickDock-1.8.19-macOS-x86_64.dmg",
+    "url": "https://gitee.com/rooogerluo/flick-dock-macos-releases-5/releases/download/v1.8.19/FlickDock-1.8.19-macOS-x86_64.dmg",
+    "size": 87048395,
+    "sha256": "dd10eb62743d139c2cd9bad9ced280d908aaf147b360bdf7bd1f78de6e26a4a8"
   }
 }
